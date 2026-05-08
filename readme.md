@@ -22,7 +22,7 @@ Small automation project built using Cypress and Page Object Model (POM) for the
 Clone the repository:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/5had0ww0lf/saucedemo-cypress-automation.git
 ```
 
 Install dependencies:
