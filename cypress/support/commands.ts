@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      loginSession(username: string, password: string): Chainable<void>;
+    }
+  }
+}
+
+Cypress.Commands.add('loginSession', (username: string, password: string) => {
+  cy.session([username, password], () => {
+    cy.visit('/');
+    cy.get('#user-name').type(username);
+    cy.get('#password').type(password);
+    cy.get('#login-button').click();
+    cy.url().should('include', '/inventory.html');
+  });
+});
+
+export {};
