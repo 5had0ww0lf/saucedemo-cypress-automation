@@ -5,6 +5,7 @@ import { checkoutPage } from '../pages/checkoutPage';
 import { users } from '../support/users';
 
 describe('Checkout Form Validation & Tax Calculations - Saucedemo', () => {
+  const { firstName, lastName, postalCode } = users.valid.checkoutInfo!;
   beforeEach(() => {
     loginPage.visit();
     loginPage.loginWithUser(users.valid);
@@ -15,21 +16,21 @@ describe('Checkout Form Validation & Tax Calculations - Saucedemo', () => {
   });
 
   it('Should display error message when First Name is missing', () => {
-    checkoutPage.fillInformation({ lastName: 'Nascimento', postalCode: '90020' });
+    checkoutPage.fillInformation({ lastName, postalCode });
     checkoutPage.clickContinue();
 
     checkoutPage.getErrorMessage().should('contain', 'Error: First Name is required');
   });
 
   it('Should display error message when Last Name is missing', () => {
-    checkoutPage.fillInformation({ firstName: 'Lucas', postalCode: '90020' });
+    checkoutPage.fillInformation({ firstName, postalCode });
     checkoutPage.clickContinue();
 
     checkoutPage.getErrorMessage().should('contain', 'Error: Last Name is required');
   });
 
   it('Should display error message when Postal Code is missing', () => {
-    checkoutPage.fillInformation({ firstName: 'Lucas', lastName: 'Nascimento' });
+    checkoutPage.fillInformation({ firstName, lastName });
     checkoutPage.clickContinue();
 
     checkoutPage.getErrorMessage().should('contain', 'Error: Postal Code is required');

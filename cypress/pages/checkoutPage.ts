@@ -13,13 +13,15 @@ export class CheckoutPage {
   private totalLabel = '.summary_total_label';
 
   public fillInformation(details: Partial<CheckoutDetails>): void {
-    if (details.firstName && details.firstName.trim() !== '') {
+  if (details.firstName) {
       cy.get(this.firstNameInput).type(details.firstName);
     }
-    if (details.lastName && details.lastName.trim() !== '') {
+    
+    if (details.lastName) {
       cy.get(this.lastNameInput).type(details.lastName);
     }
-    if (details.postalCode && details.postalCode.trim() !== '') {
+    
+    if (details.postalCode) {
       cy.get(this.postalCodeInput).type(details.postalCode);
     }
   }

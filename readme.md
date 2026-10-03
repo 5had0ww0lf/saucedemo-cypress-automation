@@ -51,9 +51,8 @@ saucedemo-cypress-automation/
 
 ## ⚙️ Getting Started (Local Setup)
 
-### Prerequisites
-
-Make sure you have Node.js (v18+ recommended) and npm installed on your machine.
+##### Prerequisites
+Make sure you have Node.js (v22+ recommended) and npm installed on your machine.
 
 ### Installation
 1. Clone the repository:
