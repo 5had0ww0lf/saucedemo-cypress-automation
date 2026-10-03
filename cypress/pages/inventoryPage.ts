@@ -5,6 +5,8 @@ export class InventoryPage {
   private addToCartBackpackBtn = '[data-test="add-to-cart-sauce-labs-backpack"]';
   private addToCartBikeLightBtn = '[data-test="add-to-cart-sauce-labs-bike-light"]';
   private productSortDropdown = '[data-test="product-sort-container"]';
+  private openMenu = '#react-burger-menu-btn';
+  private logoutLink = '#logout_sidebar_link';
 
   public verifyIsOnInventoryPage(): void {
     cy.url().should('include', '/inventory.html');
@@ -30,6 +32,12 @@ export class InventoryPage {
   public sortProductsBy(optionValue: string): void {
     cy.get(this.productSortDropdown).select(optionValue);
   }
+
+  public logout(): void {
+    cy.get(this.openMenu).click();
+    cy.get(this.logoutLink).click();
+  }
+
 }
 
 export const inventoryPage = new InventoryPage();

@@ -10,12 +10,16 @@ export class LoginPage {
     cy.visit('/');
   }
 
-  public fillUsername(username: string): void {
-    cy.get(this.usernameInput).type(username);
+public fillUsername(username: string): void {
+    if (username !== '') {
+      cy.get(this.usernameInput).type(username);
+    }
   }
 
   public fillPassword(password: string): void {
-    cy.get(this.passwordInput).type(password);
+    if (password !== '') {
+      cy.get(this.passwordInput).type(password);
+    }
   }
 
   public clickLogin(): void {

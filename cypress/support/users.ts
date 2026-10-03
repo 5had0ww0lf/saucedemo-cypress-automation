@@ -19,11 +19,19 @@ export const users: Record<string, UserCredentials> = {
     }
   },
   invalid: {
-    username: 'standard_user',
+    username: 'invalid_user',
     password: 'invalid_password'
   },
   lockedOut: {
     username: 'locked_out_user',
     password: 'secret_sauce'
-  }
+  },
+  missingUsername: {
+    username: '',
+    password: 'secret_sauce'
+  },
+  missingPassword: {
+    username: 'standard_user',
+    password: ''
+  },
 };
