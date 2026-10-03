@@ -1,5 +1,3 @@
-// cypress/e2e/purchase.cy.ts
-
 import { loginPage } from '../pages/loginPage';
 import { inventoryPage } from '../pages/inventoryPage';
 import { cartPage } from '../pages/cartPage';
@@ -13,21 +11,21 @@ describe('Purchase Flow - Saucedemo', () => {
   });
 
   it('Should complete a successful product purchase', () => {
-    // 1. Adicionar produto ao carrinho
+    // 1. Add product to cart
     inventoryPage.addBackpackToCart();
     inventoryPage.goToCart();
 
-    // 2. Validar produto no carrinho e prosseguir para Checkout
+    // 2. Validate product inside cart and proceed to checkout
     cartPage.getCartItemName().should('contain', 'Sauce Labs Backpack');
     cartPage.clickCheckout();
 
-    // 3. Preencher dados de Checkout usando os dados tipados
+    // 3. Fill checkout form
     if (users.valid.checkoutInfo) {
       checkoutPage.fillInformation(users.valid.checkoutInfo);
     }
     checkoutPage.clickContinue();
 
-    // 4. Finalizar compra e validar mensagem de sucesso
+    // 4. Finish purchase and validate success message
     checkoutPage.clickFinish();
     checkoutPage.getSuccessMessage().should('contain', 'Thank you for your order!');
   });

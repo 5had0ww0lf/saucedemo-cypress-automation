@@ -4,6 +4,9 @@ export class InventoryPage {
   private shoppingCartLink = '.shopping_cart_link';
   private addToCartBackpackBtn = '[data-test="add-to-cart-sauce-labs-backpack"]';
   private addToCartBikeLightBtn = '[data-test="add-to-cart-sauce-labs-bike-light"]';
+  private addToCartBoltTShirtBtn = '[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]';
+  private removeBackpackBtn = '[data-test="remove-sauce-labs-backpack"]';
+  private itemPrices = '.inventory_item_price';
   private productSortDropdown = '[data-test="product-sort-container"]';
   private openMenu = '#react-burger-menu-btn';
   private logoutLink = '#logout_sidebar_link';
@@ -20,6 +23,18 @@ export class InventoryPage {
   public addBikeLightToCart(): void {
     cy.get(this.addToCartBikeLightBtn).click();
   }
+
+public addBoltTShirtToCart(): void {
+    cy.get(this.addToCartBoltTShirtBtn).click();
+  }
+
+  public removeBackpackFromCart(): void {
+    cy.get(this.removeBackpackBtn).click();
+  }
+
+  public getItemPrices(): Cypress.Chainable<JQuery<HTMLElement>> {
+    return cy.get(this.itemPrices);
+  }  
 
   public goToCart(): void {
     cy.get(this.shoppingCartLink).click();
