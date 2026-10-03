@@ -20,21 +20,24 @@ Automated End-to-End (E2E) test suite developed for the **Saucedemo** applicatio
 saucedemo-cypress-automation/
 ├── .github/
 │   └── workflows/
-│       └── cypress.yml      # CI/CD Pipeline configuration
+│       └── cypress.yml      # CI/CD Pipeline configuration (GitHub Actions)
 ├── cypress/
 │   ├── e2e/
-│   │   ├── login.cy.ts      # Login feature test specs
-│   │   └── purchase.cy.ts   # E2E shopping and checkout test specs
-│   ├── fixtures/
-│   │   └── users.json       # Test data payloads (typed)
+│   │   ├── cart.cy.ts       # Cart state management and item removal specs
+│   │   ├── checkout.cy.ts   # Checkout form validations and math calculations
+│   │   ├── inventory.cy.ts  # Inventory display, sorting and badge validation
+│   │   ├── login.cy.ts      # Authentication, negative flows and logout specs
+│   │   └── purchase.cy.ts   # E2E shopping happy path specs
 │   ├── pages/
 │   │   ├── cartPage.ts      # Cart Page Object
-│   │   ├── checkoutPage.ts  # Checkout Page Object
+│   │   ├── checkoutPage.ts  # Checkout Page Object (with partial types support)
 │   │   ├── inventoryPage.ts # Inventory Page Object
 │   │   └── loginPage.ts     # Login Page Object
 │   └── support/
 │       ├── commands.ts      # Custom Cypress commands & global definitions
-│       └── e2e.ts           # Global configuration and imports
+│       ├── e2e.ts           # Global configuration and imports
+│       ├── types.ts         # TypeScript interfaces and global type definitions
+│       └── users.ts         # Centralized test data payloads and user credentials
 ├── cypress.config.ts        # Cypress configuration file
 ├── tsconfig.json            # TypeScript compiler configuration
 └── package.json             # Project dependencies and scripts
@@ -47,7 +50,9 @@ saucedemo-cypress-automation/
 
 * **Encapsulation**: Private locators inside Page classes to protect UI modifications from breaking test implementation.
 
-* **Automated CI/CD**: Integrated with GitHub Actions to run test suites automatically on every push or pull request.
+*  **Modular Spec Design**: Separation of concerns across independent spec files (login, inventory, cart, checkout, and purchase).
+
+* **Automated CI/CD**: Integrated with GitHub Actions to run test suites automatically on every push or pull request using Node.js v22.
 
 ## ⚙️ Getting Started (Local Setup)
 
