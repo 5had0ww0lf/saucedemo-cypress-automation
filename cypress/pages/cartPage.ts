@@ -3,6 +3,7 @@ export class CartPage {
   private continueShoppingButton = '#continue-shopping';
   private cartItemName = '.inventory_item_name';
   private cartItemPrice = '.inventory_item_price';
+  private cartItem = '.cart_item';
   private removeButtonPrefix = '[data-test^="remove-"]';
 
   public clickCheckout(): void {
@@ -21,8 +22,12 @@ export class CartPage {
     return cy.get(this.cartItemPrice);
   }
 
-  public removeItemFromCart(): void {
+public removeItem(): void {
     cy.get(this.removeButtonPrefix).first().click();
+  }
+
+  public getCartItems(): Cypress.Chainable<JQuery<HTMLElement>> {
+    return cy.get(this.cartItem);
   }
 }
 
