@@ -1,52 +1,102 @@
-# SauceDemo Cypress Automation
+# 🚀 Saucedemo E2E Automation Framework
 
-Small automation project built using Cypress and Page Object Model (POM) for the SauceDemo application.
+[![Cypress E2E Tests](https://github.com/5had0ww0lf/saucedemo-cypress-automation/actions/workflows/cypress.yml/badge.svg)](https://github.com/5had0ww0lf/saucedemo-cypress-automation/actions/workflows/cypress.yml)
+![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)
+![Cypress](https://img.shields.io/badge/Cypress-v13+-green.svg)
 
-## Automated Scenarios
+Automated End-to-End (E2E) test suite developed for the **Saucedemo** application, built with **Cypress** and **TypeScript**. This project serves as a modern portfolio piece demonstrating robust quality engineering practices, static typing, and scalable test architecture.
 
-- Successful login
-- Invalid login validation
-- Locked user validation
-- Add product to cart
-- Remove product from cart
-- Complete checkout flow
+## 🛠️ Tech Stack & Tools
 
-## Tech Stack
+* **Automation Tool:** [Cypress](https://www.cypress.io/)
+* **Programming Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Design Pattern:** Page Object Model (POM)
+* **CI/CD Pipeline:** GitHub Actions
+* **Test Management / Data:** JSON Fixtures & Typed Interfaces
 
-- Cypress
-- JavaScript
-- Page Object Model (POM)
+## 📂 Project Structure
 
-## Setup
+```text
+saucedemo-cypress-automation/
+├── .github/
+│   └── workflows/
+│       └── cypress.yml      # CI/CD Pipeline configuration
+├── cypress/
+│   ├── e2e/
+│   │   ├── login.cy.ts      # Login feature test specs
+│   │   └── purchase.cy.ts   # E2E shopping and checkout test specs
+│   ├── fixtures/
+│   │   └── users.json       # Test data payloads (typed)
+│   ├── pages/
+│   │   ├── cartPage.ts      # Cart Page Object
+│   │   ├── checkoutPage.ts  # Checkout Page Object
+│   │   ├── inventoryPage.ts # Inventory Page Object
+│   │   └── loginPage.ts     # Login Page Object
+│   └── support/
+│       ├── commands.ts      # Custom Cypress commands & global definitions
+│       └── e2e.ts           # Global configuration and imports
+├── cypress.config.ts        # Cypress configuration file
+├── tsconfig.json            # TypeScript compiler configuration
+└── package.json             # Project dependencies and scripts
+```
 
-Clone the repository:
+## 🎯 Architecture & Best Practices Highlights
+* **Static Typing**: Full TypeScript integration providing strict typing for test data, credentials, and custom commands.
+
+* **Page Object Model (POM)**: Separation of test logic from page locators and actions, ensuring high maintainability.
+
+* **Encapsulation**: Private locators inside Page classes to protect UI modifications from breaking test implementation.
+
+* **Automated CI/CD**: Integrated with GitHub Actions to run test suites automatically on every push or pull request.
+
+## ⚙️ Getting Started (Local Setup)
+
+### Prerequisites
+
+Make sure you have Node.js (v18+ recommended) and npm installed on your machine.
+
+### Installation
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/5had0ww0lf/saucedemo-cypress-automation.git
+cd saucedemo-cypress-automation
 ```
 
-Install dependencies:
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Run Cypress UI:
+## 🏃‍♂️ Running the Tests
+
+You can run the tests in different modes depending on your needs:
+
+* **Open Cypress Test Runner (Interactive Mode):**
 
 ```bash
 npx cypress open
 ```
 
-Run tests in headless mode:
+* **Run Tests Headless (CLI Mode - Chrome):**
 
 ```bash
-npx cypress run
+npx cypress run --browser chrome
 ```
 
-## Notes
+* **Run Tests Headless (CLI Mode - Chrome):**
 
-- The project was kept simple and focused on readability and maintainability.
-- POM structure was used to improve organization and reusability.
-- Test data is centralized in fixture files.
-- The focus was covering the main user flows instead of creating extensive test coverage.
-- Assertions were added to keep tests stable and easy to understand.
+```bash
+npx cypress run 
+```
+
+## 🤖 CI/CD Pipeline
+
+The framework uses GitHub Actions to execute automated tests on a clean Ubuntu environment (ubuntu-latest) using Chrome. You can inspect past workflow runs under the Actions tab of this repository.
+
+## 👤 Author
+Lucas Nascimento
+
+* [LinkedIn](https://www.linkedin.com/in/lucas-nasc/)
+* [GitHub](https://github.com/5had0ww0lf/)
